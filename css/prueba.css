@@ -1,0 +1,45 @@
+#juego{
+  display:flex;
+  width: 800px;
+  margin: auto;
+}
+
+#juego > div{
+  border:1px solid #000;
+  width: 33%;
+}
+.carton{
+  margin:auto;
+  text-align: center;
+}
+.numero{
+  display:inline-block;
+  border:1px solid #000;
+  width: 45px;
+  line-height: 45px;
+  margin: 1px;
+  text-align:center;  
+}
+.tachado{
+  color: #fff;
+  background-color: #000;
+  
+}
+#bingo{
+  text-align: center;
+}
+#bola{
+  font-size:50px;
+  display:block;
+  margin: 20px auto;
+  width: 5rem;
+  line-height: 5rem;
+  border-radius: 50%;
+  background-color: #000;
+  color: #FFF;
+  text-align:center;
+}
+.etiqueta{
+  text-align:center;
+  margin: 10px auto;
+}
