@@ -3,6 +3,8 @@ var intervalo;
 var contadorBolas=75;
 const cartonJugador = rango.slice(0, 75);
 const numeracionCarton = _.range(1,16);
+var otroContador=0;
+var arregloHistorial = [];
 
 function crearCartonHTML(selector,array){ 
   let parent = document.querySelector(`.${selector}`)
@@ -45,6 +47,7 @@ function contarTachado(){
 function sacarBola(){
   //Aqui se setean los mensajes al usuario
   document.getElementById("barraEstado").innerHTML = "";
+  otroContador+=1;
   if(rango.length>0){
       //Genera un número aleatorio que representará la bola.
       let bola = Math.floor(Math.random() * rango.length);
@@ -52,12 +55,17 @@ function sacarBola(){
       bola = rango[bola];
       _.pull(rango,bola);
       console.log(rango);
+
+     
       //Muestra el valor de la bola en el id #bola
       let divbola = document.querySelector('#bola');
+      //console.log(divbola);
       //Muestra el valor de la bolita en el id #bola
-      let divbolita = document.querySelector("#bolita");      
       divbola.textContent = bola;
-      divbolita.textContent = bola;
+    
+
+       llenarHistorial(bola);
+
       let numero = document.querySelectorAll(`.n${bola}`);
       // console.log("cantidad de elementos"+numero.length);
       for (var i = 0; i < numero.length; ++i) {
@@ -75,11 +83,28 @@ function sacarBola(){
   }
 }
 
+function llenarHistorial(b){
+    
+    //console.log(capturaBola);
+ let divbolita = document.querySelector("#bolita");
+ let divbolita1 = document.querySelector("#bolita1");
+ let divbolita2 = document.querySelector("#bolita2");
+ let divbolita3 = document.querySelector("#bolita3");
+
+arregloHistorial.unshift(b);
+
+divbolita.textContent = arregloHistorial[0];
+divbolita1.textContent = arregloHistorial[1];
+divbolita2.textContent = arregloHistorial[2];
+divbolita3.textContent = arregloHistorial[3];
+
+}
+
 function automatizarPlay(){
   au=document.getElementById("sonido");
   sonar("play.mp3");
   document.getElementById("barraEstado").innerHTML = "EN JUEGO";
-  intervalo = setInterval(sacarBola,2000);
+  intervalo = setInterval(sacarBola,5000);
 }			
 
 function detenerPlay(){
