@@ -1,30 +1,27 @@
-var rango = _.range(1,76);
-var intervalo;
-var contadorBolas=75;
+let rango = _.range(1,76);
+let intervalo;
+let contadorBolas=75;
 const cartonJugador = rango.slice(0, 75);
-const numeracionCarton = _.range(1,16);
+const numeracionCarton = _.range(1,17);
 
 function crearCartonHTML(selector,array){ 
   let parent = document.querySelector(`.${selector}`)
-  for(e of array)
-  {
-  let divcarton = document.createElement('div');
-  divcarton.className = 'numero n'+e;
-  divcarton.textContent = e;
-  parent.appendChild(divcarton);
-  console.log(divcarton);
+  for(e of array){
+      let divcarton = document.createElement('div');
+      divcarton.className = 'numero n'+e;
+      divcarton.textContent = e;
+      parent.appendChild(divcarton);
+      console.log(divcarton);
   }
 }
 
 function crearNumeracionHTML(selector,array){ 
   let padre = document.querySelector(`.${selector}`)	  
-  for(e of array)
-  {
-  let divcarton = document.createElement('div');
-  divcarton.className = 'numeracion n'+e;
-  divcarton.textContent = e;
-  padre.appendChild(divcarton);
-  console.log(divcarton);
+  for(e of array){
+      let divcarton = document.createElement('div');
+      divcarton.className = 'numeracion no'+e;
+      divcarton.textContent = e;
+      padre.appendChild(divcarton);
   }
 }
 crearCartonHTML('cartonJugador',cartonJugador);
@@ -63,6 +60,7 @@ function sacarBola(){
       for (var i = 0; i < numero.length; ++i) {
           numero[i].classList.add('tachado');
       }
+      verificar_ganador();
       au=document.getElementById("sonido");
       sonar("sacarbola.mp3");
       contadorBolas-=1;
@@ -95,5 +93,24 @@ function sonar(audio){
 }
   
 function verificar_ganador(){
-         
+    let arr = [1,6,11,16,21,26,31,36,41,46,51,56,61,66,71];
+    for(let i of arr){
+      if(i==1 || i==6 || i==11){
+        let carr = Math.trunc((i/4)+1);
+      }
+      else if(i==16 || i==21 || i==26 || i==31){
+        let carr = Math.trunc(1/4);
+      }
+      else if(i==36 || i==41 || i==46 || i==51 || i==56 || i==61 || i==66 || i==71){
+        let carr = Math.trunc((1/4)-1);
+      }
+      if ($(`.n${i}`).hasClass("tachado") && $(`.n${i+1}`).hasClass("tachado") && $(`.n${i+2}`).hasClass("tachado") && $(`.n${i+3}`).hasClass("tachado") && $(`.n${i+4}`).hasClass("tachado")){
+        let carr = Math.trunc(i/4);
+        let numero = document.querySelector(`.no${carr}`);
+        numero.classList.add('tachado');
+        alert(`Ha ganado el jugador No.${carr}`);
+        detenerPlay();
+        break;
+      }   
+    }
 }
