@@ -1,3 +1,23 @@
+
+.contenedor-texto .titulo {
+     font-size: 45px;
+     font-weight: normal;
+     margin-bottom: 40px;
+}
+
+.contenedor-texto .fraseTitulo {
+     font-weight: bold;
+     color: #c99806;
+     font-style: normal;
+}
+
+.contenedor-texto p {
+     margin-bottom: 40px;
+     line-height: 36px;
+}
+
+
+
 .numeracion{
   display:block;
   width: 30px;
