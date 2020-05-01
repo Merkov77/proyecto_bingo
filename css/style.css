@@ -6,7 +6,6 @@
   text-align:center; 
   margin-top: 16px; 
   color:black;
-  border: 1.7px solid black;
   border-radius: 50%;
 
 }
@@ -122,11 +121,87 @@ button:hover{
   margin: 1px;
   text-align:center;  
 }
-.tachado{
+.jugador1{
+  color: black;
+  background-color: magenta;
+  
+}
+.jugador2{
+  color: black;
+  background-color: white;
+  
+}
+
+.jugador3{
+  color: black;
+  background-color: #CD6A97;
+  
+}
+
+.jugador4{
+  color: black;
+  background-color: #E8582C;
+  
+}
+
+.jugador5{
+  color: black;
+  background-color: #51ECD7;
+  
+}
+
+.jugador6{
+  color: black;
+  background-color: #679D34;
+  
+}
+.jugador7{
+  color: black;
+  background-color: #ECEECD;
+  
+}
+.jugador8{
   color: black;
   background-color: #7327b8;
   
 }
+.jugador9{
+  color: black;
+  background-color: gray;
+  
+}
+.jugador10{
+  color: black;
+  background-color: #CD6A97;
+  
+}
+.jugador11{
+  color: black;
+  background-color: #E8582C;
+  
+}
+.jugador12{
+  color: black;
+  background-color: #51ECD7;
+  
+}
+.jugador13{
+  color: black;
+  background-color: #679D34;
+  
+}
+.jugador14{
+  color: black;
+  background-color: #ECEECD;
+  
+}
+.jugador15{
+  color: black;
+  background-color: lime;
+  
+}
+
+
 #bingo{
   text-align: center;
 }
