@@ -1,33 +1,196 @@
-
-
-
-.contenedor-texto .titulo {
-     font-size: 48px;
-     font-weight: normal;
-     margin-bottom: 20px;
+body{
+	margin: 0;
+	background: #8DB6CB;
 }
 
-.contenedor-texto .textoFrase {
-
-     font-weight: bold;
-     color: #c99806;
-     font-style: normal;
+*{
+	font-family: sans-serif;
 }
 
-.numeracion{
-  display:block;
-  width: 30px;
-  line-height: 30px;
-  margin-left: 5px;
-  text-align:center; 
-  margin-top: 16px; 
-  color:black;
-  border-radius: 50%;
+#container{
+	position: relative;
+	width: 930px;
+	margin: auto;
+}
+
+header, section, aside, footer{
+	padding: 20px;
+}
+
+header{
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	background-image: linear-gradient(to right top, #aa2424, #942828, #7d2b2b, #662c2c, #4f2c2c);
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+h1{
+	font-family: 'Carter One', cursive;
+}
+
+section{
+	background-image: linear-gradient(to right top, #0f290d, #163c15, #1e501c, #276522, #307a29);
+	width: 100%;
+}
+
+aside{
+	background-image: linear-gradient(to left top, #1f2025, #1a1b1f, #16161a, #101014, #09080d);
+	background-image: url(./img/bgaside.png);
+	background-size: cover;
+	float: right;
+	right: 0;
+	/*padding: 40px;*/
+	width: 450px;
+	/*z-index: 1;*/
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: center;
+}
+
+footer{
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	background: black;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+#middle{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	background: #dbdbdb;
+	/*min-height: 100vh;*/
+}
+
+
+/*Contenedor del juego, hijo del Section*/
+
+#contenido{
+	width: 100%;/*960ps*/
+	height: 780px;
+	padding: 20px;
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	/*justify-content:  flex-end;*/
+	background: #12327c;
+	/*float: right;*/
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
 
 }
 
-div{
-	font-size: 20px;
+
+.numeracion{ /*Contenedor de la numeracion inicial*/
+	/*background: #0b2257;*/
+	float: left;
+	border-radius: 14px;
+	/*margin: 10px;*/
+}
+
+.ng{ /*numeracion general inicial*/
+	width: 45px; height: 45px;
+	background-image: linear-gradient(to left top, #40404b, #08080a);
+	
+	color: #3ce819;
+	border-radius: 100px;
+	line-height: 45px;
+	font-weight: bold;
+	margin: 6px;
+	text-align: center;
+}
+
+.cartonJugador{ /*Numeros hasta el 75 CONTENEDOR*/
+	padding: 10px;
+	/*background: #1a0a32;*/
+	width: 270px;
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: space-between;
+
+}
+.numeros{ /*Numeros hasta el 75*/
+	float: left;
+	width: 45px; height: 45px;
+	text-align: center;
+	line-height: 45px;
+	background: #f2f2f2;
+	border-radius: 10px;
+	border: 1px solid transparent;
+	/*box-shadow:inset 0px 0px 10px rgb(264,91,91,0.80);*/
+	margin:2px;
+}
+
+
+.jugadores{
+	flex-grow: 1;
+	background: rgb(140,140,140,0.40);
+	/*width: 200px;*/
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top-left-radius: 13px;
+	border-bottom-left-radius: 13px;
+}
+
+form{
+	position: relative;
+	height: 100%;
+	float: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+input[type="text"]{
+	width: 130px;
+	padding: 14px;
+	/*background: #000011;*/
+	color: #00e411;
+	outline: none;
+	border-radius: 10px;
+	border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+button{
+	flex-grow: 1;
+	margin-top: 20px;
+	width: 100%;
+	height: 80px;
+	background: linear-gradient(to left top, #881fb5, #76189a, #641281, #520d68, #410851);
+	border: 1px solid white;
+	border-radius: 10px;
+	outline: none;
+	color: #fff;
+	font-size: 130%;
+ 	font-weight:bold;
+ 	cursor: pointer;
+ 	transition: ease all 0.5s;
+}
+
+button:hover{
+	transition: ease all 0.5s;
+	font-style: italic;
+	font-size: 150%;
+	background: #2CFF00;
+	color: #144300;
+	box-shadow: inset 0 0 23px #1D0623;
 }
 
 #barraEstado{
@@ -35,6 +198,10 @@ div{
 	height: 40px;
 	font-size: 35px;
 	margin-left: 25px;
+	color: #F41515;
+	font-style: italic;
+	font-weight: bold;
+	text-shadow: 3px 3px 0px black;
 }
 
 label{
@@ -58,9 +225,16 @@ label{
 
 }
 #barraComandos{ /*Sección donde se encuentran los botones con lo que se interactúa*/
-
+	/*background: blue;*/
 	width: 242px;
 	height: 220px;
+	text-align: center;
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	align-self: center;
 /*	border:4px solid #a255e8; -> coloqué este codigo para identificar visualmente las dimensiones del div */
 
 }
@@ -68,228 +242,64 @@ label{
 #totalBolas{
 	margin-top: 20px;
 	font-size: 60px;
+	color: #fff;
+	text-shadow: 3px 3px 0px black;
 
 
 }
-
-
 #mostrarFaltantes{
 	margin-top: 20px;
 	font-size: 60px;
-
+	color: #FF8500;
+	text-shadow: 3px 3px 0px black;
 }
 
-input{
-	width: 180px;
-	height: 35px;
-	background-color: #debbf7;
-	color:white;
-	font-weight:bold;
-	font-size: 24px;
-	margin-top: 9.2px;
-	text-transform: uppercase;
-
-}
-
-button{
-	margin-top: 20px;
-	width: 80px;
-	height: 80px;	
-	background-color:#b878ed;
-	border-radius: 20%;
-	border: 6px solid #a255e8;
- 	margin-left: 80px;
- 	font-weight:bold;
-
-}
-
-button:hover{
-
-	background-color: #debbf7;
-	box-shadow: 0 0 13px #debbf7;
-
-}
-
-#jugadores{
 
 
-}
 
-#juego{
-  display:flex;
-  width: 800px;
-  margin: auto;
-}
 
-#juego > div{
- /* border:1px solid #7327b8;*/
-  width: 100%;
-  margin-left: 5px; /*Cuadrar los numeros del contenido*/
-}
-.carton{
-  margin:auto;
-  text-align: center;
-
-}
-.numero{
-  display:inline-block;
-  border:2px solid #7327b8;
-  width: 45px;
-  line-height: 45px;
-  border-radius: 50%;
-  margin: 1px;
-  text-align:center;  
-}
-.jugador1{
-  color: black;
-  background-color: magenta;
+.tachado{
+  color: white;
+  background-image: radial-gradient(circle, #ffb100, #d1880d, #a3620f, #74400c, #462202);
   
 }
-.jugador2{
-  color: black;
-  background-color: white;
-  
-}
-
-.jugador3{
-  color: black;
-  background-color: #CD6A97;
-  
-}
-
-.jugador4{
-  color: black;
-  background-color: #E8582C;
-  
-}
-
-.jugador5{
-  color: black;
-  background-color: #51ECD7;
-  
-}
-
-.jugador6{
-  color: black;
-  background-color: #679D34;
-  
-}
-.jugador7{
-  color: black;
-  background-color: #ECEECD;
-  
-}
-.jugador8{
-  color: black;
-  background-color: #7327b8;
-  
-}
-.jugador9{
-  color: black;
-  background-color: gray;
-  
-}
-.jugador10{
-  color: black;
-  background-color: #CD6A97;
-  
-}
-.jugador11{
-  color: black;
-  background-color: #E8582C;
-  
-}
-.jugador12{
-  color: black;
-  background-color: #51ECD7;
-  
-}
-.jugador13{
-  color: black;
-  background-color: #679D34;
-  
-}
-.jugador14{
-  color: black;
-  background-color: #ECEECD;
-  
-}
-.jugador15{
-  color: black;
-  background-color: lime;
-  
-}
-
-
 #bingo{
   text-align: center;
 }
+
 #bola{
   font-size:50px;
+  font-weight: bold;
   display:block;
   margin: 20px auto;
   margin-top: 70px;
   width: 10rem;
   height: 10rem;
   line-height: 10rem;
+  border: 10px double #410851;
   border-radius: 50%;
-  background-color: #17A589;
-  color: #FFF;
+  background-color: #fff;
+  color: #000;
   text-align:center;
 }
 
 #bolita{
-  font-size:28px;
-  display:block;
+  font-size:10px;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   margin-left: 8px;
   margin-top: 16px;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #17A589;
-  color: #FFF;
-  text-align:center;
-
-}
-
-#bolita1{
-  font-size:28px;
-  display:block;
-  margin-left: 8px;
-  margin-top: 16px;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: #17A589;
-  color: #FFF;
-  text-align:center;
-
-}
-
-#bolita2{
-  font-size:28px;
-  display:block;
-  margin-left: 8px;
-  margin-top: 16px;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: #17A589;
-  color: #FFF;
-  text-align:center;
-
-}
-
-#bolita3{
-  font-size:28px;
-  display:block;
-  margin-left: 8px;
-  margin-top: 16px;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: #17A589;
-  color: #FFF;
+  background-color: #43334A;
+  font-size: 120%;
+  border: 1px solid #202020;
+  box-shadow: inset 0px 0px 13px black;
+  color: #FFC800;
+  text-shadow: 0px 0px 10px #FFC800;
   text-align:center;
 
 }
@@ -299,10 +309,6 @@ button:hover{
   margin: 10px auto;
 }
 
-section{
-		display:flex;		
-
-}
 
 
 #mostrarNumeroElegido{
@@ -334,89 +340,6 @@ section{
 	
 }
 
-#contenedor{
-width: 960px; 
-margin: auto;
-margin-top: 20px;
-margin-bottom: 20px;
-
-
-}
-
-header{
-	height: 70px;
-	background: #461e6b;
-	margin-top: 5px;
-	border-radius: 20px;
-}
-
-header h1{
-	font-size: 40px;
-	text-align: center;
-	line-height: 70px;
-}
-
-h3{
-	
-	
-
-}
-/*Menu*/
-nav{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background: orange;
-	height: 40px;
-}
-
-nav h2{
-	font-size: 30px;
-	text-align: center;
-	line-height: 40px;
-	font-size: 30px;
-}
-
-aside{
-
-	width: 250px;
-	height: 780px;
-	background:#efddfb;
-	margin-top: 10px;
-	float:right;
-	border-radius: 20px;
-	border:1px solid black;
-}
-
-footer{
-	background: #461e6b;
-	clear:both;
-	height: 40px;
-	float:bottom;
-	border-radius: 20px;
-
-}
-
-#contenido{
-	width: 550px;/*960ps*/
-	height: 780px;
-	float:left;
-	background: #cc9af2;
-	margin-top: 10px;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	justify-content:  center;
-	border-radius: 20px;
-	border:1px solid black;
-}
-#contenido h2{
-		font-size: 50px;
-		text-align: center;
-		line-height: 500px;
-
-}
-
-
-
 .botones{
 	width: 80px;
 	height: 50px;
@@ -445,12 +368,6 @@ footer{
 
 }
 
-
-h1{
-	font-size: 10px;
-	font-family: "Arial Black";
-}
-
 image{
 
 	max-width: 100%;
@@ -458,15 +375,6 @@ image{
 
 }
 
-
-body{
-
-	font-family:"Arial Black";
-	color:white;
-	margin:auto;
-	background-color: lightblue;
-	
-}
 
 .boton{
 
