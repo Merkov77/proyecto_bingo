@@ -1,34 +1,37 @@
-let rango = _.range(1,76);
-let intervalo;
-let contadorBolas=75;
+﻿var rango = _.range(1,76);
+var intervalo;
+var contadorBolas=75;
 const cartonJugador = rango.slice(0, 75);
 const numeracionCarton = _.range(1,16);
 var otroContador=0;
 var arregloHistorial = []; //Este es el arreglo que se usa en el historial.
-const numeracionCarton = _.range(1,17);
 
+
+
+window.onload = function() {
+
+  //for (i=0;i<7=75;i++){
+
+//  numero[i].classList.add('jugador1');
+
+  //}
+ 
+};
 
 function crearCartonHTML(selector,array){ 
   let parent = document.querySelector(`.${selector}`)
-  for(e of array){
-      let divcarton = document.createElement('div');
-      divcarton.className = 'numero n'+e;
-      divcarton.textContent = e;
-      parent.appendChild(divcarton);
-      console.log(divcarton);
+  for(e of array)
+  {
+  let divcarton = document.createElement('div');
+  divcarton.className = 'numero n'+e;
+  divcarton.textContent = e;
+  parent.appendChild(divcarton);
+  console.log(divcarton);
   }
 }
 
 function crearNumeracionHTML(selector,array){ 
-
-  let padre = document.querySelector(`.${selector}`)	  
-  for(e of array){
-      let divcarton = document.createElement('div');
-      divcarton.className = 'numeracion no'+e;
-      divcarton.textContent = e;
-      padre.appendChild(divcarton);
-  }
-
+  
 }
 
 crearCartonHTML('cartonJugador',cartonJugador);
@@ -62,7 +65,7 @@ function contarTachado(){
       for (i=0;i<=5;i++){
      let x = document.getElementById("numero n"+i).querySelectorAll(".pintarGanador");
         x[0].style.backgroundColor = "red";
-*/
+*/    
       }
   
    if(totalJugador2==5) {
@@ -147,6 +150,7 @@ function sacarBola(){
      
       //Muestra el valor de la bola en el id #bola
       let divbola = document.querySelector('#bola');
+
       //console.log(divbola);
       //Muestra el valor de la bolita en el id #bola
       divbola.textContent = bola;
@@ -155,7 +159,7 @@ function sacarBola(){
        llenarHistorial(bola);
 
       let numero = document.querySelectorAll(`.n${bola}`);
-    //  console.log("cantidad de elementos: "+numero.length);
+      console.log("cantidad de elementos: "+numero.length);
       
       for (var i = 0; i < numero.length; ++i) {
         //Colocar un if que valide que jugador debe poner de acuerdo a la bolilla
@@ -205,7 +209,6 @@ function sacarBola(){
           numero[i].classList.add('jugador15');
         }
       }
-      verificar_ganador();
       au=document.getElementById("sonido");
       sonar("sacarbola.mp3");
       contadorBolas-=1;
@@ -262,40 +265,17 @@ function verificar_ganador(){
 
 
 const typed = new Typed('.typed', {
-
+  
   stringsElement: '#cadenas-texto', // ID del elemento que contiene cadenas de texto a mostrar.
   typeSpeed: 75, // Velocidad en mlisegundos para poner una letra,
   startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
   backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
   smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
   shuffle: false, // Alterar el orden en el que escribe las palabras.
-  backDelay: 2000, // Tiempo de espera despues de que termina de escribir una palabra.
+  backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
   loop: true, // Repetir el array de strings
   loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
   showCursor: true, // Mostrar cursor palpitanto
-  cursorChar: '|', // Caracter para el cursor
+  cursorChar: '/', // Caracter para el cursor
   contentType: 'html', // 'html' o 'null' para texto sin formato
 });
-
-
-
-    let arr = [1,6,11,16,21,26,31,36,41,46,51,56,61,66,71];
-    for(let i of arr){
-      if(i==1 || i==6 || i==11){
-        let carr = Math.trunc((i/4)+1);
-      }
-      else if(i==16 || i==21 || i==26 || i==31){
-        let carr = Math.trunc(1/4);
-      }
-      else if(i==36 || i==41 || i==46 || i==51 || i==56 || i==61 || i==66 || i==71){
-        let carr = Math.trunc((1/4)-1);
-      }
-      if ($(`.n${i}`).hasClass("tachado") && $(`.n${i+1}`).hasClass("tachado") && $(`.n${i+2}`).hasClass("tachado") && $(`.n${i+3}`).hasClass("tachado") && $(`.n${i+4}`).hasClass("tachado")){
-        let carr = Math.trunc(i/4);
-        let numero = document.querySelector(`.no${carr}`);
-        numero.classList.add('tachado');
-        alert(`Ha ganado el jugador No.${carr}`);
-        detenerPlay();
-        break;
-      }   
-    }
