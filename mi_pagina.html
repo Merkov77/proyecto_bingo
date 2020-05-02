@@ -1,78 +1,57 @@
 <!DOCTYPE html>
-<html lang=”es”>
-	<head>
-		<title>Bingo Online</title>
-		<link type="text/css" href="css/style.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-		<meta charset="UTF-8">
-		<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
-	</head>
-	<body>
-		<div id="contenedor">
-			<header>
-				  <div class="contenedor-texto">
-					<!-- Forma #1 -->
-					<h2 class="titulo">
-						<span class="typed"></span>
-					</h2>
-					
-					
-					<div class="titulo" id="cadenas-texto">
-						<p>¡Juega Bingo Virtual y <i class="textoFrase">Diviertete!</i></p>
-						<p>¡Juega Bingo Virtual y <i class="textoFrase">Apuesta!</i></p>
-						<p>¡Juega Bingo Virtual y <i class="textoFrase">Gana!</i></p>
-					</div> 
+<html>
+<head>
+	<title>Bingo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./style/css.css">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>**Crazy Bingo**</h1>
+		</header>
 
-			</header>
-
-				<section id=contenido>
-					<div class="numeracion"></div>	
-					<div id="juego">
+		<div id="middle">
+			<section>
+				<div id="contenido">
+					<div class="numeracion">
+					</div>
 					<div class="cartonJugador">				  
 					</div>
-					<div id="jugadores">
-						<input type="text" id=jugador1></input>
-						<input type="text" id=jugador2></input>
-						<input  type="text" id=jugador3></input>
-						<input  type="text" id=jugador4></input>
-						<input  type="text" id=jugador5></input>
-						<input  type="text" id=jugador6></input>
-						<input  type="text" id=jugador7></input>
-						<input  type="text" id=jugador8></input>
-						<input  type="text" id=jugador9></input>
-						<input  type="text" id=jugador10></input>
-						<input  type="text" id=jugador11></input>
-						<input  type="text" id=jugador12></input>
-						<input  type="text" id=jugador13></input>
-						<input  type="text" id=jugador14></input>
-						<input  type="text" id=jugador15></input>	
+					<div class="jugadores">
 					</div>
-				</section>
-				<aside>
-					<div id="bola"></div>
+				</div>
+			</section>
+			<aside>
+				<div id="bola"></div>
 					<div id="barraComandos">
 						<button id="play" onClick="automatizarPlay();">PLAY</button>
 						<button id="stop" onClick="detenerPlay();">STOP</button>
 					</div>
 						<div id="barraHistorial">
-						<div id="bolita"></div>
-						<div id="bolita1"></div>
-						<div id="bolita2"></div>
-						<div id="bolita3"></div>
-					</div>
+							<div id="bolita"></div>
+							<div id="bolita"></div>
+							<div id="bolita"></div>
+							<div id="bolita"></div>
+						</div>
 					<div id="barraFaltantes">
 						<label id="mostrarFaltantes">75</label>
 						<label id="totalBolas">/ 75</label>
 					</div>
 					<div id="barraEstado"></div>
-				</aside>
-				<footer>
-					<h2>Easy Software Corporation INC</h2>
-				</footer>
+			</aside>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-		<script src="js/main.js"></script>  
-  		<audio id="sonido" src=""></audio>
-	</body>
+		<footer>
+			<h1>Easy Software Corporation INC</h1>
+		</footer>
+	</div>
+
+  	<audio id="sonido" src=""></audio>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
