@@ -1,56 +1,61 @@
 var rango = _.range(1,76);
 var intervalo;
 var contadorBolas=75;
+const cartonJugador = rango.slice(0, 75);
+const numeracionCarton = _.range(1,16);
+var otroContador=0;
+var arregloHistorial = []; //Este es el arreglo que se usa en el historial.
 
 const animateHeader = () => {
-	let header = document.getElementsByTagName("header")[0]
-	header.animate([{
-		transform:"translate(0%, -100%)"
-	},{
-		transform:"translate(0%, 0%)"
-	}], {duration: 1000, iterations:1})
+  let header = document.getElementsByTagName("header")[0]
+  header.animate([{
+    transform:"translate(0%, -100%)"
+  },{
+    transform:"translate(0%, 0%)"
+  }], {duration: 1000, iterations:1})
 }
 
 const animarContador = (bola) => {
-	bola.animate([{
-		fontSize: "20px"
-	},{
-		fontSize: "50px"
-	}],{duration:1000, iterations:1})
+  bola.animate([{
+    fontSize: "20px"
+  },{
+    fontSize: "50px"
+  }],{duration:1000, iterations:1})
 }
 
 const crearNumeros = (destiny, n, classname) => {
-	destiny = document.getElementsByClassName(destiny)[0]
-	for (let x = 0; x < n; x++){
-		let numero = document.createElement("div")
-			numero.className = classname + (x + 1)
-	
+  destiny = document.getElementsByClassName(destiny)[0]
+  for (let x = 0; x < n; x++){
+    let numero = document.createElement("div")
+      numero.className = classname + (x + 1)
+  
 
-		if (classname ==="numeros n"){
-			numero.animate([{
-				transform: `scale(${0.01* -x})`, 
-			},{
-				transform: `scale(1)`, 
-			}],{duration:1000, iterations:1})
-		}
+    if (classname ==="numeros n"){
+      numero.animate([{
+        transform: `scale(${0.01* -x})`, 
+      },{
+        transform: `scale(1)`, 
+      }],{duration:1000, iterations:1})
+    }
 
-		let text = document.createTextNode((x+1))
-		numero.appendChild(text)
+    let text = document.createTextNode((x+1))
+    numero.appendChild(text)
 
-		destiny.appendChild(numero)
-	} 
+    destiny.appendChild(numero)
+  } 
 
 }
 
 const crearJugadores = destiny => { //Inputs
-	destiny = document.getElementsByClassName(destiny)[0]
-	let form = document.createElement("form")
-	for (let x = 0; x < 15; x++){
-		let input = document.createElement("input")
-		input.setAttribute("type", "text")
-		form.appendChild(input)
-	}
-	destiny.appendChild(form)
+  destiny = document.getElementsByClassName(destiny)[0]
+  let form = document.createElement("form")
+  for (let x = 0; x < 15; x++){
+    let input = document.createElement("input")
+    input.setAttribute("type", "text")
+    input.classList.add("jugador", )
+    form.appendChild(input)
+  }
+  destiny.appendChild(form)
 }
 
 crearNumeros("numeracion", 15, "ng no") //NUMERACION GENERAL (jugadores) 15
@@ -61,6 +66,8 @@ crearJugadores("jugadores")
 animateHeader()
 
 /* ----------------------------------------------------------------------------------*/
+
+
 
 function contarTachado(){
   let totalJugador = document.querySelectorAll('.cartonJugador .tachado').length;
@@ -75,30 +82,119 @@ function contarTachado(){
 }
 
 
+function contarTachado(){
+  for (let x = 0; x < 15; x++){
+	  
+    let totaljugador = document.querySelectorAll(`.cartonJugador .jugador${x+1}`).length
+    if(totaljugador==5) {
+      alert(`FELICIDADES CARTON JUGADOR ${x+1} COMPLETADO`);
+      detenerPlay();
+    }
+  }
+}
+
+
+function llenarHistorial(b){
+    
+    //console.log(capturaBola);
+ let divbolita = document.querySelector("#bolita");
+ let divbolita1 = document.querySelector("#bolita1");
+ let divbolita2 = document.querySelector("#bolita2");
+ let divbolita3 = document.querySelector("#bolita3");
+
+arregloHistorial.unshift(b);
+
+divbolita.textContent = arregloHistorial[0];
+divbolita1.textContent = arregloHistorial[1];
+divbolita2.textContent = arregloHistorial[2];
+divbolita3.textContent = arregloHistorial[3];
+
+}
 
 function sacarBola(){
+    contarTachado();
+
   //Aqui se setean los mensajes al usuario
   document.getElementById("barraEstado").innerHTML = "";
+  otroContador+=1;
   if(rango.length>0){
       //Genera un número aleatorio que representará la bola.
-      let bola = Math.floor(Math.random() * rango.length);
+
+
+   let bola = Math.floor(Math.random() * rango.length);
       //asigna el valor de la posición del arreglo rango, (que es la bola a la vez).
       bola = rango[bola];
       _.pull(rango,bola);
       console.log(rango);
+
       //Muestra el valor de la bola en el id #bola
       let divbola = document.querySelector('#bola');
+
+      //console.log(divbola);
       //Muestra el valor de la bolita en el id #bola
-      let divbolita = document.querySelector("#bolita");      
       divbola.textContent = bola;
-      divbolita.textContent = bola;
+    
+      llenarHistorial(bola);
+
       let numero = document.querySelectorAll(`.n${bola}`);
-      // console.log("cantidad de elementos"+numero.length);
+      console.log("cantidad de elementos: "+numero.length);
+      
       for (var i = 0; i < numero.length; ++i) {
-          numero[i].classList.add('tachado');
+        //Colocar un if que valide que jugador debe poner de acuerdo a la bolilla
+        if(bola<=5){
+          numero[i].classList.add('jugador1');
+        }
+        else if(bola<=10){
+          numero[i].classList.add('jugador2');
+        }
+        else if(bola<=15){
+          numero[i].classList.add('jugador3');
+        }
+        else if(bola<=20){
+          numero[i].classList.add('jugador4');
+        }
+        else if(bola<=25){
+          numero[i].classList.add('jugador5');
+        }
+        else if(bola<=30){
+          numero[i].classList.add('jugador6');
+        }
+        else if(bola<=35){
+          numero[i].classList.add('jugador7');
+        }
+        else if(bola<=40){
+          numero[i].classList.add('jugador8');
+        }
+        else if(bola<=45){
+          numero[i].classList.add('jugador9');
+        }
+        else if(bola<=50){
+          numero[i].classList.add('jugador10');
+        }
+        else if(bola<=55){
+          numero[i].classList.add('jugador11');
+        }
+        else if(bola<=60){
+          numero[i].classList.add('jugador12');
+        }
+        else if(bola<=65){
+          numero[i].classList.add('jugador13');
+        }
+        else if(bola<=70){
+          numero[i].classList.add('jugador14');
+        } 
+        else{
+          numero[i].classList.add('jugador15');
+        }
+        document.getElementsByClassName("numeros")[bola-1].animate([{
+          transform:"rotateY(100deg)",
+          fontSize: "180%"
+        },{
+          transform:"rotateY(0deg)",
+          fontSize: "100%"
+        }], {duration:400, iterations:1})
       }
       animarContador(divbola)
-      verificar_ganador()
       au=document.getElementById("sonido");
       sonar("sacarbola.mp3");
       contadorBolas-=1;
