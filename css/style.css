@@ -20,10 +20,16 @@ header, section, aside, footer{
 header{
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
-	background-image: linear-gradient(to right top, #aa2424, #942828, #7d2b2b, #662c2c, #4f2c2c);
+	/*background-image: linear-gradient(to right top, #aa2424, #942828, #7d2b2b, #662c2c, #4f2c2c);*/
+	/*background: #d13044;*/
+	background: url(../img/bghe2.png);
+	background-size: cover;
+	background-position: center center;
 	color: #fff;
 	font-weight: bold;
 	text-align: center;
+	font-size: 140%;
+	padding: 20px;
 }
 
 h1{
@@ -31,13 +37,21 @@ h1{
 }
 
 section{
-	background-image: linear-gradient(to right top, #0f290d, #163c15, #1e501c, #276522, #307a29);
+	/*background-image: linear-gradient(to right top, #0f290d, #163c15, #1e501c, #276522, #307a29);*/
+	background-image: url(../img/bgas9.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	/*background: #ad70a8;*/
 	width: 100%;
+	border-bottom-left-radius: 30px;
 }
 
 aside{
-	background-image: linear-gradient(to left top, #1f2025, #1a1b1f, #16161a, #101014, #09080d);
-	background-image: url(./img/bgaside.png);
+	border-bottom-right-radius: 30px;
+	/*background-image: linear-gradient(to left top, #1f2025, #1a1b1f, #16161a, #101014, #09080d);*/
+	/*background-image: url(../img/bgaside.png);*/
+	background: linear-gradient(to top, #bbbbbb, #dbdbdb, #ececec);
 	background-size: cover;
 	float: right;
 	right: 0;
@@ -47,15 +61,15 @@ aside{
 	display: flex;
 	flex-flow: wrap row;
 	justify-content: center;
+	z-index: 8px;
 }
 
 footer{
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
 	background: black;
 	color: #fff;
 	font-weight: bold;
-	text-align: center;
+	text-align: right;
+	margin-top: 30px;
 }
 
 #middle{
@@ -64,6 +78,7 @@ footer{
 	justify-content: space-between;
 	background: #dbdbdb;
 	/*min-height: 100vh;*/
+	border-radius: 30px;
 }
 
 
@@ -79,7 +94,7 @@ footer{
 	margin-bottom: 10px;
 	display: flex;
 	/*justify-content:  flex-end;*/
-	background: #12327c;
+	background: rgb(255,255,255,0.40);
 	/*float: right;*/
 	border-bottom-left-radius: 30px;
 	border-top-left-radius: 30px;
@@ -96,14 +111,16 @@ footer{
 
 .ng{ /*numeracion general inicial*/
 	width: 45px; height: 45px;
-	background-image: linear-gradient(to left top, #40404b, #08080a);
-	
-	color: #3ce819;
+	/*background-image: linear-gradient(to left top, #40404b, #08080a);*/
+	/*background: #fff;*/
+	color: #fff;
 	border-radius: 100px;
 	line-height: 45px;
 	font-weight: bold;
+	font-style: italic;
 	margin: 6px;
 	text-align: center;
+	text-shadow: 2px 2px 0px black;
 }
 
 .cartonJugador{ /*Numeros hasta el 75 CONTENEDOR*/
@@ -116,15 +133,17 @@ footer{
 
 }
 .numeros{ /*Numeros hasta el 75*/
+	flex-grow: 1;
 	float: left;
 	width: 45px; height: 45px;
 	text-align: center;
 	line-height: 45px;
-	background: #f2f2f2;
+	background: #f5fbd6;
+	/*background: radial-gradient(circle, #fbfae2, #bbbbbb);*/
 	border-radius: 10px;
-	border: 1px solid transparent;
+	border: 1px solid #bbbbbb; /*Esta línea ayuda a que se mantenga ordenada la secuencia de 5*/
 	/*box-shadow:inset 0px 0px 10px rgb(264,91,91,0.80);*/
-	margin:2px;
+	/*margin:2px;*/
 }
 
 
@@ -159,25 +178,17 @@ input[type="text"]{
 }
 
 
-
-
-
-
-
-
-
-
-
 button{
 	flex-grow: 1;
 	margin-top: 20px;
 	width: 100%;
 	height: 80px;
-	background: linear-gradient(to left top, #881fb5, #76189a, #641281, #520d68, #410851);
-	border: 1px solid white;
-	border-radius: 10px;
+	border: 0px solid #df1c34;
+	border-radius: 40px;
+	background: url(../img/btn4.png);
+	background-size: cover;
+	background-position: center center;
 	outline: none;
-	color: #fff;
 	font-size: 130%;
  	font-weight:bold;
  	cursor: pointer;
@@ -188,9 +199,9 @@ button:hover{
 	transition: ease all 0.5s;
 	font-style: italic;
 	font-size: 150%;
-	background: #2CFF00;
-	color: #144300;
-	box-shadow: inset 0 0 23px #1D0623;
+	color: #fff;
+	border:4px solid #fff;
+	/*box-shadow: inset 0 0 23px #1D0623;*/
 }
 
 #barraEstado{
@@ -276,14 +287,17 @@ label{
   width: 10rem;
   height: 10rem;
   line-height: 10rem;
-  border: 10px double #410851;
+  /*border: 10px double #410851;*/
   border-radius: 50%;
   background-color: #fff;
+  background: url(../img/bola.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #000;
   text-align:center;
 }
 
-#bolita{
+#bolita, #bolita1, #bolita2, #bolita3{
   font-size:10px;
   display:flex;
   justify-content: center;
@@ -291,14 +305,19 @@ label{
   align-items: center;
   margin-left: 8px;
   margin-top: 16px;
+  text-align: center;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background-color: #43334A;
+  background: url(../img/bolita.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 120%;
-  border: 1px solid #202020;
-  box-shadow: inset 0px 0px 13px black;
-  color: #FFC800;
+  padding: 5px;
+  /*border: 1px solid #202020;*/
+  /*box-shadow: inset 0px 0px 13px black;*/
+  color: #000;
   text-shadow: 0px 0px 10px #FFC800;
   text-align:center;
 
@@ -491,3 +510,111 @@ footer h2{
 	margin: 2px;
 }
 
+
+
+
+/* Jugadores */
+
+.numero{
+  display:inline-block;
+  border:2px solid #7327b8;
+  width: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  margin: 1px;
+  text-align:center;  
+}
+.jugador1{
+  color: white;
+  font-weight:bold;
+  background-color: magenta;
+  
+}
+.jugador2{
+  color: white;
+  font-weight:bold;
+  background-color: #303030;
+  
+}
+
+.jugador3{
+  color:#fff;
+  font-weight:bold;
+  background-color: #CD6A97;
+  
+}
+
+.jugador4{
+  color: white;
+  font-weight:bold;
+  background-color: #E8582C;
+  
+}
+
+.jugador5{
+  color: #0A5349;
+  font-weight:bold;
+  background-color: #51ECD7;
+  
+}
+
+.jugador6{
+  color: white;
+  font-weight:bold;
+  background-color: #679D34;
+  
+}
+.jugador7{
+  color: #303030;
+  font-weight:bold;
+  background-color: #ECEECD;
+  
+}
+.jugador8{
+  color: white;
+  font-weight:bold;
+  background-color: #7327b8;
+  
+}
+.jugador9{
+  color: white;
+  font-weight:bold;
+  background-color: gray;
+  
+}
+.jugador10{
+  color: white;
+  font-weight:bold;
+  background-color: #CD6A97;
+  
+}
+.jugador11{
+  color: white;
+  font-weight:bold;
+  background-color: #E8582C;
+  
+}
+.jugador12{
+  color: #032C3B;
+  font-weight:bold;
+  background-color: #51ECD7;
+  
+}
+.jugador13{
+  color: white;
+  font-weight:bold;
+  background-color: #679D34;
+  
+}
+.jugador14{
+  color: white;
+  font-weight:bold;
+  background-color: #ECEECD;
+  
+}
+.jugador15{
+  color: white;
+  font-weight:bold;
+  background-color: lime;
+  
+}
